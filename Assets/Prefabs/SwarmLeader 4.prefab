@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 33999111675003944}
   - component: {fileID: 23872363411874258}
   - component: {fileID: 135417798074669428}
+  - component: {fileID: 4159440508614449226}
+  - component: {fileID: 741611266396735914}
+  - component: {fileID: 3818367921413942783}
   m_Layer: 0
   m_Name: SwarmLeader 4
   m_TagString: Untagged
@@ -92,6 +95,65 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4159440508614449226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723075800250862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c23ff2e97aea7438816c90051471e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 1266273167589394, guid: 796116833518cdc48b4f73898718d8bc, type: 3}
+  mask: []
+  numberOfBoids: 20
+  numberOfObstacles: 10
+  boids: []
+  spawnRadius: 3
+  speed: 5.25
+  turnspeed: 200
+  FOV: 60
+  NeighborDistanceSquared: 64
+  cohesionWeight: 1
+  alignmentWeight: 0
+  avoidanceWeight: 1
+  noise: 0.1
+  AvoidMininum: 3
+  target: {fileID: 0}
+  deadBoids: []
+  boom: {fileID: 1260984010859786, guid: 886a4d4b2ffeba041aa24c2cd01402cc, type: 3}
+  player: 0
+--- !u!114 &741611266396735914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723075800250862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92adea1e87ba634bb56598261d00174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catmul: {fileID: 0}
+  trackManager: {fileID: 0}
+  trackIndex: 0
+--- !u!114 &3818367921413942783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723075800250862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26479455d7910f24a8af44d54bf490bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToWait: 3
 --- !u!1 &1779636616270194
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerChangeLane : Task
 {
+    public string IndexKey;
+    public string GameObjectKey;
+    public string ArrayKey;
+
     public override NodeResult Execute()
     {
         Turning dir = (Turning)tree.GetValue("TurnRequested");
@@ -12,8 +16,8 @@ public class PlayerChangeLane : Task
             // are we at a crossover node on the track?
             // if so, then turn to the other track, in the correct direction requested.
             // who sets the Turning value? The player does via keydown in another module.
-            GameObject waypoint = (GameObject)tree.GetValue("Waypoint");
-            int wpi = (int)tree.GetValue("Index");
+            GameObject waypoint = (GameObject)tree.GetValue(GameObjectKey);
+            int wpi = (int)tree.GetValue(IndexKey);
             // is this a crossover point? (i.e is it on another track?
             TrackManager tm = (TrackManager)tree.GetValue("TrackManager");
             int trackIndex = (int)tree.GetValue("TrackIndex");
@@ -97,9 +101,9 @@ public class PlayerChangeLane : Task
                                 //Debug.Log("direction from: " + ADir + " to "+ NDir);
                                 tree.SetValue("Direction", NDir);
                                 tree.SetValue("TrackIndex", s);
-                                tree.SetValue("Waypoints", tm.splines[s].sp);
-                                tree.SetValue("Waypoint", tm.splines[s].sp[(j * 20 + NDir+320)%320]);
-                                tree.SetValue("Index", (j * 20 + NDir+ 320) % 320);
+                                tree.SetValue(ArrayKey, tm.splines[s].sp);
+                                tree.SetValue(GameObjectKey, tm.splines[s].sp[(j * 20 + NDir+320)%320]);
+                                tree.SetValue(IndexKey, (j * 20 + NDir+ 320) % 320);
                                 //Debug.Log("Back to straight now that we have turned");
                                 tree.SetValue("TurnRequested", Turning.STRAIGHT);
                                 return NodeResult.SUCCESS;

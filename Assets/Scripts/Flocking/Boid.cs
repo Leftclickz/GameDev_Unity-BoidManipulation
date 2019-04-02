@@ -26,6 +26,7 @@ public class Boid : MonoBehaviour {
     private void LateUpdate()
     {
         Move();
+        CheckForDeath();
     }
 
     bool isNeighBor(Boid b)
@@ -117,5 +118,15 @@ public class Boid : MonoBehaviour {
         direction = SwarmDir + Cohesion * flock.cohesionWeight + Alignment * flock.alignmentWeight + Avoidance * flock.avoidanceWeight;
         // then renormalize again
         direction = Vector3.Normalize(direction);
+    }
+
+    void CheckForDeath()
+    {
+        RaycastHit hit;
+        int layerMask = 1 << 8;
+        if (!Physics.Raycast(transform.position, Vector3.down, out hit, 10.0f, ~layerMask))
+        {
+            flock.removeBoid(gameObject);
+        }
     }
 }
