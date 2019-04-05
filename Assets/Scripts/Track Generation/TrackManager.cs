@@ -48,7 +48,8 @@ public class TrackManager : MonoBehaviour {
         for (int i = 0; i < 5; i++) // TO DO CHANGE CODE
         {
             // TO DO - Spawn the swarm leader
-            GameObject swarmLeader = Instantiate(swarmleaderPrefab[i], splines[i].sp[0].transform.position, Quaternion.identity);
+            Vector3 SpawnPos = splines[i].sp[0].transform.position;
+            GameObject swarmLeader = Instantiate(swarmleaderPrefab[i], SpawnPos, Quaternion.identity);
             Flock swarmFlock = swarmLeader.GetComponent<Flock>();
             swarmFlock.target = swarmLeader;
             swarmFlock.boom = boomPrefab;
